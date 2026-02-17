@@ -1,73 +1,44 @@
-# React + TypeScript + Vite
+Nimble Gravity | Junior Fullstack Developer Challenge
+Este proyecto es la resolución del desafío técnico para la posición de Junior Fullstack Developer. Consiste en una aplicación desarrollada con React que interactúa con una API para filtrar bots, permitiendo a los candidatos visualizar posiciones abiertas y enviar su postulación mediante la URL de su repositorio de GitHub.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🚀 Tecnologías Utilizadas
+React 18 (con Vite) para un entorno de desarrollo ultra rápido.
 
-Currently, two official plugins are available:
+TypeScript para garantizar la integridad de los datos y un desarrollo libre de errores de tipado.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Tailwind CSS para un diseño moderno y responsivo.
 
-## React Compiler
+Axios para el manejo de peticiones HTTP de forma eficiente.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+🛠️ Arquitectura y Buenas Prácticas
+Se aplicaron patrones de diseño modernos para asegurar que el código sea escalable y mantenible:
 
-## Expanding the ESLint configuration
+Custom Hooks: La lógica de obtención de datos se centralizó en el hook useChallenge, separando la lógica de negocio de la interfaz de usuario.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Componentes Modulares: Estructura organizada en Layout, JobList y JobCard para facilitar la lectura y futuras extensiones.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Manejo de Estados: Implementación de estados de carga (loading) y manejo de errores para mejorar la experiencia de usuario (UX).
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+📦 Instalación y Uso
+Sigue estos pasos para ejecutar el proyecto localmente:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Clona el repositorio:
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Bash
+git clone https://github.com/francoespinoza1107/nimble-challenge.git
+cd nimble-challenge
+Instala las dependencias:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Bash
+npm install
+Inicia el servidor de desarrollo:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Bash
+npm run dev
+
+📄 Notas Adicionales
+La aplicación utiliza el endpoint de la API proporcionado para validar los datos del candidato mediante su correo electrónico.
+
+Se incluyó una validación básica para asegurar que la URL ingresada corresponda a un dominio de GitHub.
+
+Desarrollado por Franco Espinoza - Salta, Argentina.

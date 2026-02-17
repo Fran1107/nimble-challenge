@@ -1,6 +1,7 @@
 import { useChallenge } from './hooks/useChallenge'
 import { Layout } from './components/Layout'
 import { JobList } from './components/JobList'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
   const { candidate, jobs, loading, error } = useChallenge('francoespinoza1107@gmail.com')
@@ -10,6 +11,7 @@ function App() {
 
   return (
     <Layout>
+      <Toaster position="top-right" reverseOrder={false} />
       <header className="mb-12 text-center">
         <h1 className="text-4xl font-bold mb-2">
           Listado de las Posiciones

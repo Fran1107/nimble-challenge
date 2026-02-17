@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import type { Job, Candidate } from '../types'
 import { applyToJob } from '../api/api'
+import toast from 'react-hot-toast'
 
 interface JobCardProps {
   job: Job
@@ -32,16 +33,29 @@ export const JobCard = ({ job, candidate }: JobCardProps) => {
       const res = await applyToJob({
         uuid: candidate.uuid,
         jobId: job.id,
+        applicationId: candidate.applicationId,
         candidateId: candidate.candidateId,
         repoUrl
       })
 
       if (res.ok) {
-        alert(`Postulado con éxito a ${job.title}`)
+        toast.success(`¡Postulado con éxito a ${job.title}!`, {
+          style: {
+            borderRadius: '10px',
+            background: '#333',
+            color: '#fff',
+          },
+        });
         setRepoUrl('')
       }
     } catch {
-      setError('Ocurrió un error al enviar la postulación')
+      toast.error('Ocurrió un error al enviar la postulación', {
+        style: {
+          borderRadius: '10px',
+          background: '#333',
+          color: '#fff',
+        },
+      });
     } finally {
       setLoading(false)
     }
